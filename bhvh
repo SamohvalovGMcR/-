@@ -1,0 +1,23 @@
+socket.on('showopen', function (value) {
+ field4.style.display="block";
+   field3.innerHTML =JSON.stringify(value[0]);
+   in1.innerHTML ="";
+   if (value[1]){
+   value[1]=value[1].filter(el=>el!=="typ");
+  //in1.innerHTML =JSON.stringify(value[1]);
+  value[1].map(el=>{
+   //for(var key in value[1]){
+   var item=document.createElement("button");
+   //item.innerHTML = value[1][key];
+   item.innerHTML =el;
+   item.onclick = function() {
+socket.emit("use",[value[0],this.innerHTML]);//[//0//
+ field4.style.display="none";
+ self2.style.display="none";
+};
+   in1.appendChild(item);
+   });
+   //};//for
+   //in1.innerHTML ="";
+   };
+})
